@@ -1,6 +1,7 @@
 // Gulp modules
 var gulp        = require('gulp'),
     clean       = require('gulp-clean'),
+    concat      = require('gulp-concat'),
     del         = require('del'),
     fs          = require('fs'),
     gutil       = require('gulp-util'),
@@ -9,6 +10,7 @@ var gulp        = require('gulp'),
     rename      = require('gulp-rename'),
     sass        = require('gulp-ruby-sass'),
     swig        = require('gulp-swig'),
+    uglify      = require('gulp-uglify'),
     uncss       = require('gulp-uncss'),
     watch       = require('gulp-watch');
 
@@ -120,127 +122,31 @@ gulp.task('imagemin', function () {
         .pipe(gulp.dest(dist.imgs));
 });
 
+/***
+Concatenate JS
+***/
+gulp.task('concatjs', function() {
+    return gulp.src(src.js +'/**/*.js')
+        .pipe(concat('main.js'))
+        .pipe(gulp.dest(dist.js));
+});
 
-
-
-
-
-// gulp.task('sass', ['iesass', 'ie9sass', 'ie8sass'], function() {
-//     return sass(config.src.css + 'application.css.scss')
-//         .on('error', function (err) {
-//             console.error('Error!', err.message);
-//         })
-//         .pipe(rename('application.css'))
-//         .pipe(gulp.dest(config.dist.css));
-// });
-
-// gulp.task('iesass', function () {
-//     return sass(config.src.css + 'ie.css.scss')
-//         .on('error', function (err) {
-//             console.error('Error!', err.message);
-//         })
-//         .pipe(rename('ie.css'))
-//         .pipe(gulp.dest(config.dist.css));
-// });
-// gulp.task('ie9sass', function () {
-//     return sass(config.src.css + 'ie-9.css.scss')
-//         .on('error', function (err) {
-//             console.error('Error!', err.message);
-//         })
-//         .pipe(rename('ie-9.css'))
-//         .pipe(gulp.dest(config.dist.css));
-// });
-// gulp.task('ie8sass', function () {
-//     return sass(config.src.css + 'ie-8.css.scss')
-//         .on('error', function (err) {
-//             console.error('Error!', err.message);
-//         })
-//         .pipe(rename('ie-8.css'))
-//         .pipe(gulp.dest(config.dist.css));
-// });
-
-// /***
-// Minify CSS
-// ***/
-// gulp.task('minifycss', ['csslint'], function() {
-//     gulp.src(config.dist.css + 'application.css')
-//         .pipe(rename('application.min.css'))
-//         .pipe(minifyCss())
-//         .pipe(gulp.dest(config.dist.css));
-//     gulp.src(config.dist.css + 'ie.css')
-//         .pipe(rename('ie.min.css'))
-//         .pipe(minifyCss())
-//         .pipe(gulp.dest(config.dist.css));
-//     gulp.src(config.dist.css + 'ie-9.css')
-//         .pipe(rename('ie-9.min.css'))
-//         .pipe(minifyCss())
-//         .pipe(gulp.dest(config.dist.css));
-//     gulp.src(config.dist.css + 'ie-8.css')
-//         .pipe(rename('ie-8.min.css'))
-//         .pipe(minifyCss())
-//         .pipe(gulp.dest(config.dist.css));
-// });
-
-// /***
-// Lint complied CSS
-// ***/
-// gulp.task('csslint', ['sass'], function() {
-//     return gulp.src(config.dist.css + 'application.css')
-//         .pipe(csslint())
-//         .pipe(csslint.reporter(cssLintReporter));
-// });
-
-// var cssLintReporter = function(file) {
-//     gutil.log(gutil.colors.yellow('CSS Lint: ' + file.csslint.errorCount + ' errors') + ' in ' + gutil.colors.magenta(file.path));
-
-//     file.csslint.results.forEach(function(result) {
-//         gutil.log(gutil.colors.yellow('Line ' + result.error.line + ': ') + result.error.message);
-//     });
-// };
-
-// /***
-// Concatenate JS
-// ***/
-// gulp.task('concatjs', ['deljs'], function() {
-//     return gulp.src(config.src.js +'/**/*.js')
-//         .pipe(concat('application.js'))
-//         .pipe(gulp.dest(config.dist.js));
-// });
-
-// /***
-// Minify JS
-// ***/
-// gulp.task('minifyjs', ['jshint'], function() {
-//     return gulp.src(config.dist.js + 'application.js')
-//         .pipe(rename('application.min.js'))
-//         .pipe(uglify())
-//         .pipe(gulp.dest(config.dist.js));
-// });
-
-// /***
-// JS hint
-// ***/
-// gulp.task('jshint', ['concatjs'], function() {
-//     return gulp.src(config.dist.js + 'application.js')
-//         .pipe(jshint())
-//         .pipe(jshint.reporter());
-// });
-
-// /**
-// Minify images
-// ***/
-// gulp.task('imagemin', ['delimgs'], function () {
-//     return gulp.src(config.src.imgs + '**/*.{gif,jpg,jpeg,png,svg}')
-//         .pipe(imagemin())
-//         .pipe(gulp.dest(config.dist.imgs));
-// });
+/***
+Minify JS
+***/
+gulp.task('minifyjs', ['concatjs'], function() {
+    return gulp.src(dist.js + 'main.js')
+        .pipe(rename('main.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(dist.js));
+});
 
 gulp.task(
     'default', [
         'clean',
         'swig',
         'minifycss',
-        // 'minifyjs',
+        'minifyjs',
         'imagemin'
     ]
 );
@@ -248,8 +154,8 @@ gulp.task(
 gulp.task('serve', ['default'], function () {
     gutil.log('Initiating watch');
     gulp.watch(watch.css, { interval: 1000 }, ['default']);
-    // gulp.watch(watch.js, { interval: 1000 }, ['default']);
-    // gulp.watch(watch.imgs, { interval: 1000 }, ['default']);
+    gulp.watch(watch.js, { interval: 1000 }, ['default']);
+    gulp.watch(watch.imgs, { interval: 1000 }, ['default']);
     gulp.watch(watch.pages, { interval: 1000 }, ['default']);
     gulp.watch(watch.partials, { interval: 1000 }, ['default']);
     gulp.watch(watch.templates, { interval: 1000 }, ['default']);

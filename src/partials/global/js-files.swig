@@ -1,0 +1,2 @@
+<script src="./assets/libs/jquery/jquery-2.1.4.min.js"></script>
+<script src="./assets/js/main.min.js"></script>

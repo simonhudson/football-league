@@ -22,5 +22,6 @@
 
 {% include "../partials/global/footer.swig" %}
 
+{% include "../partials/global/js-files.swig" %}
 </body>
 </html>
