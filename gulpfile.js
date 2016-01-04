@@ -4,7 +4,11 @@ var gulp        = require('gulp'),
     del         = require('del'),
     fs          = require('fs'),
     gutil       = require('gulp-util'),
+    minifyCss   = require('gulp-minify-css'),
+    rename      = require('gulp-rename'),
+    sass        = require('gulp-ruby-sass'),
     swig        = require('gulp-swig'),
+    uncss       = require('gulp-uncss'),
     watch       = require('gulp-watch');
 
 // Define directory structure
@@ -40,6 +44,8 @@ var watch = {};
 /***
 Clean dist
 ***/
+gulp.task('clean', ['clean_css','clean_imgs','clean_js','clean_html']);
+
 gulp.task('clean_css', function() {
     gulp.src(dist.css + '**/*.css')
         .pipe(clean());
@@ -93,6 +99,41 @@ gulp.task('swig', function() {
 /***
 Sass -> CSS
 ***/
+gulp.task('sass', function() {
+    return sass(src.css + 'main.scss')
+        .on('error', function (err) {
+            console.error('Error!', err.message);
+        })
+        .pipe(rename('main.css'))
+        .pipe(gulp.dest(dist.css));
+});
+/***
+Minify CSS
+***/
+gulp.task('minifycss', ['uncss'], function() {
+    gulp.src(dist.css + 'main.css')
+        .pipe(rename('main.min.css'))
+        .pipe(minifyCss())
+        .pipe(gulp.dest(dist.css));
+});
+/***
+Un-CSS
+***/
+gulp.task('uncss', ['sass'], function () {
+    return gulp.src(dist.css + '*.css')
+        .pipe(uncss({
+            html: ['./' + dist.root + '*.html']
+        }))
+        .pipe(gulp.dest(dist.css));
+});
+
+
+
+
+
+
+
+
 // gulp.task('sass', ['iesass', 'ie9sass', 'ie8sass'], function() {
 //     return sass(config.src.css + 'application.css.scss')
 //         .on('error', function (err) {
@@ -124,17 +165,6 @@ Sass -> CSS
 //             console.error('Error!', err.message);
 //         })
 //         .pipe(rename('ie-8.css'))
-//         .pipe(gulp.dest(config.dist.css));
-// });
-
-// /***
-// Un-CSS
-// ***/
-// gulp.task('uncss', ['sass'], function () {
-//     return gulp.src(config.dist.css + '*.css')
-//         .pipe(uncss({
-//             html: ['./*.{html,php}']
-//         }))
 //         .pipe(gulp.dest(config.dist.css));
 // });
 
@@ -216,7 +246,9 @@ Sass -> CSS
 
 gulp.task(
     'default', [
-        'swig'
+        'clean',
+        'swig',
+        'minifycss'
         // 'minifycss',
         // 'minifyjs',
         // 'imagemin'
@@ -225,7 +257,7 @@ gulp.task(
 
 gulp.task('serve', ['default'], function () {
     gutil.log('Initiating watch');
-    // gulp.watch(watch.css, { interval: 1000 }, ['default']);
+    gulp.watch(watch.css, { interval: 1000 }, ['default']);
     // gulp.watch(watch.js, { interval: 1000 }, ['default']);
     // gulp.watch(watch.imgs, { interval: 1000 }, ['default']);
     gulp.watch(watch.pages, { interval: 1000 }, ['swig']);

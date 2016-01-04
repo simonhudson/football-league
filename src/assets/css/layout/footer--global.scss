@@ -1,0 +1,11 @@
+//
+// Global footer
+//
+.footer--global {
+    @include padding-y($spacing-xlg);
+    background:rgba($palette-accent-secondary, .05);
+    border-bottom:$spacing solid $palette-accent-secondary;
+}
+.self-img {
+    @include margin-b();
+}
