@@ -1,4 +1,4 @@
-<nav class="main-nav">
+<nav class="main-nav" data-showhide-content="sh-main-nav" id="main-nav">
     <ul class="main-nav__list">
         {% for level1 in mainNav %}
             <li class="main-nav__item">
