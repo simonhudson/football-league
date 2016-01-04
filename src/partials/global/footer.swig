@@ -1,5 +1,5 @@
 <footer class="footer--global">
-    <div class="grid__wrap">
+    <div class="grid__wrap footer__wrap">
         <div class="grid__span--4">
             <p><address>
                 <small>Derby County Football Club<br />

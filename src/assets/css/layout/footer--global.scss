@@ -1,7 +1,7 @@
 //
 // Global footer
 //
-.footer--global {
+.footer__wrap {
     @include padding-t();
     border-top:1px solid rgba($palette-body, .35);
 }

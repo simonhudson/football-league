@@ -217,7 +217,7 @@ body {
   width: auto;
 }
 
-.footer--global {
+.footer__wrap {
   padding-top: 16px;
   border-top: 1px solid rgba(254, 254, 254, 0.35);
 }
