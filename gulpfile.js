@@ -260,7 +260,7 @@ gulp.task('serve', ['default'], function () {
     gulp.watch(watch.css, { interval: 1000 }, ['default']);
     // gulp.watch(watch.js, { interval: 1000 }, ['default']);
     // gulp.watch(watch.imgs, { interval: 1000 }, ['default']);
-    gulp.watch(watch.pages, { interval: 1000 }, ['swig']);
-    gulp.watch(watch.partials, { interval: 1000 }, ['swig']);
-    gulp.watch(watch.templates, { interval: 1000 }, ['swig']);
+    gulp.watch(watch.pages, { interval: 1000 }, ['default']);
+    gulp.watch(watch.partials, { interval: 1000 }, ['default']);
+    gulp.watch(watch.templates, { interval: 1000 }, ['default']);
 });

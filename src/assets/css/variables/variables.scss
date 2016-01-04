@@ -12,9 +12,9 @@ $spacing-lg:    $spacing * 2;
 $spacing-xlg:   $spacing * 4;
 
 // Colour palette
-$palette-body: #494e51;
+$palette-body: #fefefe;
 
-$palette-accent-primary:    #05abb6;
+$palette-accent-primary:    #222;
 $palette-accent-secondary:  #c4421e;
 $palette-accent-tertiary:   #443526;
 
@@ -58,8 +58,4 @@ $grid__width--wide: $desktop-wide;
 
 // Layout
 $global-header-height:pxToEm(70px);
-$global-stacking-order: 'portfolio-img', 'portfolio-content', 'global-header';
-
-// Portfolio
-$portfolio-item-height: $global-header-height * 8;
-$portfolio-items: 'gov-petitions';
+$global-stacking-order: 'global-header';

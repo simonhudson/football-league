@@ -14,7 +14,7 @@
 </head>
 <body>
 
-{% include "../partials/global/main-nav.swig" %}
+{% include "../partials/global/header.swig" %}
 
 {% block content %}
 {% endblock %}

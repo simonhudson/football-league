@@ -44,8 +44,8 @@ html {
 }
 
 body {
-  background: #fff;
-  color: #494e51;
+  background: #000;
+  color: #fefefe;
   font-family: "opensans_regular", arial, helvetica, sans-serif;
   font-size: 1.4em;
 }
@@ -65,8 +65,109 @@ li {
   padding-bottom: 0.6em;
 }
 
+.grid__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media all and (min-width: 768px) {
+  .grid__wrap {
+    width: 768px;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .grid__wrap {
+    width: 1024px;
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .grid__wrap {
+    width: 1280px;
+  }
+}
+
+@media all and (min-width: 1792px) {
+  .grid__wrap {
+    width: 1792px;
+  }
+}
+
+[class*="grid__span"] {
+  width: 100%;
+  margin: 20px;
+  margin-top: 0;
+}
+
+@media all and (min-width: 1024px) {
+  .grid__span--3 {
+    width: 130.66667px;
+  }
+
+  .grid__span--15 {
+    width: 813.33333px;
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .grid__span--3 {
+    width: 173.33333px;
+  }
+
+  .grid__span--15 {
+    width: 1026.66667px;
+  }
+}
+
+@media all and (min-width: 1792px) {
+  .grid__span--3 {
+    width: 258.66667px;
+  }
+
+  .grid__span--15 {
+    width: 1453.33333px;
+  }
+}
+
 body {
-  background: #fff;
+  background: #222;
+}
+
+.header--global {
+  background: #fefefe;
+  border-top: 16px solid #000;
+  border-bottom: 16px solid #000;
+  min-height: 4.375em;
+}
+
+a {
+  color: #fefefe;
+}
+
+@media all and (min-width: 1024px) {
+  .main-nav__list {
+    display: flex;
+  }
+}
+
+.main-nav__item {
+  display: inline;
+  line-height: 1em;
+  list-style: none outside;
+  padding-bottom: 0;
+}
+
+@media all and (min-width: 1024px) {
+  .main-nav__item {
+    flex-grow: 1;
+  }
+}
+
+.main-nav__link {
+  color: #222;
 }
 
 h1 {

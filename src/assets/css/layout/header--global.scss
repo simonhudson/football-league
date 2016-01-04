@@ -1,43 +1,9 @@
 //
-// Global header
+// Header
 //
 .header--global {
-    @include full-width();
-    background:$palette-accent-primary;
-    color:#fff;
-    height:$global-header-height;
-    position:fixed;
-    will-change:transform;
-    z-index:index($global-stacking-order, 'global-header');
-
-    .grid__wrap {
-        position:relative;
-    }
-
-}
-.logo__wrap {
-    @include position-tl(5px, 0);
-
-    @include bp($switch-layout) {
-        @include position-tl(5px, $grid__gutter);
-    }
-}
-.logo__img {
-    height:($global-header-height - pxToEm($spacing));
-    width:auto;
-}
-.strapline__wrap {
-    @include position-tr(20px, 0);
-    @include strong();
-    text-align:right;
-    text-transform:uppercase;
-
-    span {
-        display:none;
-
-        @include bp($bp-1) {
-            display:inline;
-        }
-
-    }
+    background:$palette-body;
+    border-top:$spacing solid #000;
+    border-bottom:$spacing solid #000;
+    min-height:$global-header-height;
 }

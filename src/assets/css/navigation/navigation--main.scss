@@ -1,0 +1,23 @@
+//
+// Main nav
+//
+.main-nav__list {
+    
+    @include bp($switch-layout) {
+        display:flex;
+    }
+
+}
+.main-nav__item {
+    display:inline;
+    line-height:1em;
+    list-style:none outside;
+    padding-bottom:0;
+
+    @include bp($switch-layout) {
+        flex-grow:1;
+    }
+}
+.main-nav__link {
+    color:$palette-accent-primary;
+}
