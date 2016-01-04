@@ -81,7 +81,7 @@ gulp.task('swig', function() {
     var opts = {
         load_json: true,
         defaults: {cache: false},
-        data: require('./' + src.pages + '_global')
+        data: require('./' + src.pages + 'global')
     };
 
     return gulp.src(src.pages + '**/*.swig')

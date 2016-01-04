@@ -1,0 +1,47 @@
+{
+    "global" : {
+        "pageTitleFragment" : " | Football Club FC"
+    },
+    "mainNav" : [
+        {
+            "text" : "News",
+            "url" : "./news",
+            "secondaryNav" : [
+                {
+                    "text" : "Latest news",
+                    "url" : "./news/news1"
+                },
+                {
+                    "text" : "News 2",
+                    "url" : "./news/news2"
+                }
+            ]
+        },
+        {
+            "text" : "Fixtures &amp; Results",
+            "url" : "./fixtures-results"
+        }
+    ],
+    "socialMedia" : [
+        {
+            "type" : "twitter",
+            "cta" : "Follow us on Twitter",
+            "url" : "http://twitter.com/dcfcofficial"
+        },
+        {
+            "type" : "facebook",
+            "cta" : "Find us on Facebook",
+            "url" : "http://www.facebook.com/DerbyCounty1"
+        },
+        {
+            "type" : "instagram",
+            "cta" : "Follow us on Instagram",
+            "url" : "http://instagram.com/dcfcofficial"
+        },
+        {
+            "type" : "youtube",
+            "cta" : "Find us on YouTube",
+            "url" : "http://www.youtube.com/user/DCTV1884"
+        }
+    ]
+}

@@ -18,5 +18,7 @@
 {% block content %}
 {% endblock %}
 
+{% include "../partials/global/footer.swig" %}
+
 </body>
 </html>
