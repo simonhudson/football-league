@@ -255,7 +255,13 @@ body {
 
 .banner {
   background: rgba(0, 0, 0, 0.25);
-  height: 22.5em;
+  height: 15em;
+}
+
+@media all and (min-width: 1024px) {
+  .banner {
+    height: 22.5em;
+  }
 }
 
 a {

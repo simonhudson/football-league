@@ -3,5 +3,9 @@
 //
 .banner {
     background:rgba($palette-accent-primary, .25);
-    height:$global-header-height * 3;
+    height:$global-header-height * 2;
+
+    @include bp($switch-layout) {
+        height:$global-header-height * 3;
+    }
 }
