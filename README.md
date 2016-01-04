@@ -8,6 +8,20 @@ Inspired by the poor usability and accessibility of the boilerplate website used
 
 ## Existing status
 
+### Page size
+Created using Firefox's Web Developer extension (Web Developer -> Information -> View Document Size)
+
+####Overview
+* 15 documents: 69KB (265KB uncompressed)
+* 123 images: 995KB (995KB uncompressed)
+* 0 objects
+* 22 scripts: 718KB (1897KB uncompressed)
+* 10 style sheets: 108KB (560KB uncompressed)
+* **Total** 170 files: 1890KB (3716KB uncompressed)
+
+[View full report](https://github.com/simonhudson/football-league/blob/master/Document_Size_from_www.dcfc.co.uk_-_2016-01-04_11.50.46.png) 
+
+
 ### Page structure
 * **Home**
 * **News** (Latest news, Pre-match interviews, Post-match interviews, Your 90 minutes, Designated charity, Rams Player, Twitter, Facebook, Instagram, Rams Wall, YouTube, Vine, Google+)
