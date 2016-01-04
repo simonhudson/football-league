@@ -52,12 +52,19 @@ Created using Firefox's Web Developer extension (Web Developer -> Information ->
 
 ### Information Architecture
 * Classify each page as "Supporter interest", "Club info" or "Commercial"
-* Include social media streams on all pages (as part of footer?) to remove repetitive links across site/individual pages
+* Consolidate and remove repetition
+  * Social media links duplicated on page
+  * Mailing list functionality on right side flyout and in header
 
 ### Page size
 * Target use of images as priority
   * Improve compression
   * Make use of srcset
+* Review use of scripts
+  * Third-party
+  * Repeated calls
+    * http://platform.twitter.com/widgets.js is called twice @ 86KB each time
+    * jQuery is called from both the Google CDN and also included as part of http://www.dcfc.co.uk/js/combinedjs/combinedtop.js
 
 ### Front-end build
 * Implement adaptive grid
