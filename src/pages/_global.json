@@ -1,5 +1,25 @@
 {
     "global" : {
         "pageTitleFragment" : " | Football Club FC"
-    }
+    },
+    "mainNav" : [
+        {
+            "text" : "News",
+            "url" : "./news",
+            "secondaryNav" : [
+                {
+                    "text" : "News 1",
+                    "url" : "./news/news1"
+                },
+                {
+                    "text" : "News 2",
+                    "url" : "./news/news2"
+                }
+            ]
+        },
+        {
+            "text" : "Fixtures &amp; Results",
+            "url" : "./fixtures-results"
+        }
+    ]
 }

@@ -13,6 +13,8 @@
 </head>
 <body>
 
+{% include "../partials/global/main-nav.swig" %}
+
 {% block content %}
 {% endblock %}
 
