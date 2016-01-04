@@ -47,3 +47,17 @@ Created using Firefox's Web Developer extension (Web Developer -> Information ->
 * Players carousel
 * Search (right side flyout)
 * Mailing list (right side flyout)
+
+## Approach
+
+### Information Architecture
+* Classify each page as "Supporter interest", "Club info" or "Commercial"
+* Include social media streams on all pages (as part of footer?) to remove repetitive links across site/individual pages
+
+### Page size
+* Target use of images as priority
+  * Improve compression
+  * Make use of srcset
+
+### Front-end build
+* Implement adaptive grid
