@@ -1,5 +1,5 @@
 # Football League club website
-Inspired by the poor usability and accessibility of the boilerplate website used by many Football League clubs, I decided to have a go at re-building it from the ground up.
+Inspired by the poor usability and accessibility of the boilerplate website used by many Football League clubs, I decided to have a go at re-building it from the ground up, using Derby County FC as an example.
 
 ## Aims
 * Re-assess information architecture and look for ways to cut down on complexity, whilst bringing important information more to the fore
