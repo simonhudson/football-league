@@ -1,14 +1,16 @@
 //
 // Main nav
 //
-.main-nav__list {
+.main-nav__list,
+.sub-nav__list {
     
     @include bp($switch-layout) {
         display:flex;
     }
 
 }
-.main-nav__item {
+.main-nav__item,
+.sub-nav__item {
     display:inline;
     line-height:1em;
     list-style:none outside;
@@ -18,6 +20,7 @@
         flex-grow:1;
     }
 }
-.main-nav__link {
+.main-nav__link,
+.sub-nav__link {
     color:$palette-accent-primary;
 }

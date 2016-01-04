@@ -140,7 +140,7 @@ body {
   background: #fefefe;
   border-top: 16px solid #000;
   border-bottom: 16px solid #000;
-  min-height: 4.375em;
+  min-height: 7.5em;
 }
 
 a {
@@ -148,12 +148,14 @@ a {
 }
 
 @media all and (min-width: 1024px) {
-  .main-nav__list {
+  .main-nav__list,
+  .sub-nav__list {
     display: flex;
   }
 }
 
-.main-nav__item {
+.main-nav__item,
+.sub-nav__item {
   display: inline;
   line-height: 1em;
   list-style: none outside;
@@ -161,12 +163,14 @@ a {
 }
 
 @media all and (min-width: 1024px) {
-  .main-nav__item {
+  .main-nav__item,
+  .sub-nav__item {
     flex-grow: 1;
   }
 }
 
-.main-nav__link {
+.main-nav__link,
+.sub-nav__link {
   color: #222;
 }
 
