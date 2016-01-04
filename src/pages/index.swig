@@ -1,0 +1,5 @@
+{% extends '../templates/default.swig' %}
+
+{% block content %}
+<h1>Home page</h1>
+{% endblock %}

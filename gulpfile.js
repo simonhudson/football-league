@@ -1,19 +1,24 @@
 // Gulp modules
 var gulp        = require('gulp'),
+    clean       = require('gulp-clean'),
     del         = require('del'),
+    fs          = require('fs'),
     gutil       = require('gulp-util'),
     swig        = require('gulp-swig'),
     watch       = require('gulp-watch');
 
 // Define directory structure
 var src = {};
-    src.root    = 'src/';
-    src.assets  = src.root + 'assets/';
-    src.css     = src.assets + 'css/';
-    src.fonts   = src.assets + 'fonts/';
-    src.imgs    = src.assets + 'imgs/';
-    src.js      = src.assets + 'js/';
-    src.libs    = src.assets + 'libs/';
+    src.root        = 'src/';
+    src.assets      = src.root + 'assets/';
+    src.css         = src.assets + 'css/';
+    src.fonts       = src.assets + 'fonts/';
+    src.imgs        = src.assets + 'imgs/';
+    src.js          = src.assets + 'js/';
+    src.libs        = src.assets + 'libs/';
+    src.pages       = src.root + 'pages/';
+    src.partials    = src.root + 'partials/';
+    src.templates   = src.root + 'templates/';
 var dist = {};
     dist.root    = 'dist/';
     dist.assets  = dist.root + 'assets/';
@@ -22,27 +27,68 @@ var dist = {};
     dist.imgs    = dist.assets + 'imgs/';
     dist.js      = dist.assets + 'js/';
     dist.libs    = dist.assets + 'libs/';
-
-// Set the environment
-var Env = {
-    isDev: gutil.env.dev,
-    isProd: gutil.env.prod
-};
+var watch = {};
+    watch.css         = src.assets + 'css/**/*.{scss,css}';
+    watch.fonts       = src.assets + 'fonts/';
+    watch.imgs        = src.assets + 'imgs/**/*.{gif,jpg,jpeg,png,svg}';
+    watch.js          = src.assets + 'js/**/*.js';
+    watch.libs        = src.assets + 'libs/**/*.{js,css}';
+    watch.pages       = src.root + 'pages/**/*.swig';
+    watch.partials    = src.root + 'partials/**/*.swig';
+    watch.templates   = src.root + 'templates/**/*.swig';
 
 /***
 Clean dist
 ***/
-gulp.task('clean', ['delete_css','delete_js','delete_imgs']);
+gulp.task('clean_css', function() {
+    gulp.src(dist.css + '**/*.css')
+        .pipe(clean());
+});
+gulp.task('clean_imgs', function() {
+    gulp.src(dist.imgs + '**/*.{gif,jpg,jpeg,png,svg}')
+        .pipe(clean());
+});
+gulp.task('clean_js', function() {
+    gulp.src(dist.js + '**/*.js')
+        .pipe(clean());
+});
+gulp.task('clean_html', function() {
+    gulp.src(dist.root + '**/*.html')
+        .pipe(clean());
+});
 
-gulp.task('delete_css', function() {
-    del(dist.css + '*.css');
-});
-gulp.task('delete_js', function() {
-    del(dist.js + 'application.js');
-    del(dist.js + 'application.min.js');
-});
-gulp.task('delete_imgs', function() {
-    del(dist.imgs + '**/*.{gif,jpg,jpeg,png,svg}');
+
+// gulp.task('clean', ['delete_css','delete_js','delete_imgs','delete_html']);
+
+// gulp.task('delete_css', function() {
+//     del(dist.css + '*.css');
+// });
+// gulp.task('delete_js', function() {
+//     del(dist.js + 'application.js');
+//     del(dist.js + 'application.min.js');
+// });
+// gulp.task('delete_imgs', function() {
+//     del(dist.imgs + '**/*.{gif,jpg,jpeg,png,svg}');
+// });
+// gulp.task('delete_html', function() {
+//     del(dist.root + '**/*.html');
+// });
+
+/***
+Swig
+***/
+gulp.task('swig', function() {
+    var opts = {
+        // load_json: true,
+        // json_path: './data/pages/',
+        defaults: {cache: false},
+        // data: require('./data/global')
+    };
+
+    return gulp.src(src.pages + '**/*.swig')
+        .pipe(swig(opts))
+        .pipe(gulp.dest(dist.root));
+
 });
 
 /***
@@ -171,16 +217,19 @@ Sass -> CSS
 
 gulp.task(
     'default', [
-        'clean',
+        'swig'
         // 'minifycss',
         // 'minifyjs',
         // 'imagemin'
     ]
 );
 
-// gulp.task('serve', ['default'], function () {
-//     gutil.log('Initiating watch');
-//     gulp.watch(src.css, { interval: 1000 }, ['default']);
-//     gulp.watch(src.js, { interval: 1000 }, ['default']);
-//     gulp.watch(src.imgs, { interval: 1000 }, ['default']);
-// });
+gulp.task('serve', ['default'], function () {
+    gutil.log('Initiating watch');
+    // gulp.watch(watch.css, { interval: 1000 }, ['default']);
+    // gulp.watch(watch.js, { interval: 1000 }, ['default']);
+    // gulp.watch(watch.imgs, { interval: 1000 }, ['default']);
+    gulp.watch(watch.pages, { interval: 1000 }, ['swig']);
+    gulp.watch(watch.partials, { interval: 1000 }, ['swig']);
+    gulp.watch(watch.templates, { interval: 1000 }, ['swig']);
+});
