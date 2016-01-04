@@ -13,3 +13,24 @@
     flex-grow:1;
     list-style:none outside;
 }
+.footer__address-item {
+
+    &::after {
+        content:', ';
+    }
+
+    &:last-of-type::after {
+        content:'';
+    }
+
+    &:first-of-type,
+    &:last-of-type {
+        display:block;
+    }
+
+    @include bp($switch-layout) {
+        @include padding-y(3px);
+        display:block;
+    }
+
+}
