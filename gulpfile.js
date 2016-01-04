@@ -4,6 +4,7 @@ var gulp        = require('gulp'),
     del         = require('del'),
     fs          = require('fs'),
     gutil       = require('gulp-util'),
+    imagemin    = require('gulp-imagemin'),
     minifyCss   = require('gulp-minify-css'),
     rename      = require('gulp-rename'),
     sass        = require('gulp-ruby-sass'),
@@ -63,23 +64,6 @@ gulp.task('clean_html', function() {
         .pipe(clean());
 });
 
-
-// gulp.task('clean', ['delete_css','delete_js','delete_imgs','delete_html']);
-
-// gulp.task('delete_css', function() {
-//     del(dist.css + '*.css');
-// });
-// gulp.task('delete_js', function() {
-//     del(dist.js + 'application.js');
-//     del(dist.js + 'application.min.js');
-// });
-// gulp.task('delete_imgs', function() {
-//     del(dist.imgs + '**/*.{gif,jpg,jpeg,png,svg}');
-// });
-// gulp.task('delete_html', function() {
-//     del(dist.root + '**/*.html');
-// });
-
 /***
 Swig
 ***/
@@ -127,7 +111,14 @@ gulp.task('uncss', ['sass'], function () {
         .pipe(gulp.dest(dist.css));
 });
 
-
+/**
+Minify images
+***/
+gulp.task('imagemin', function () {
+    return gulp.src(src.imgs + '**/*.{gif,jpg,jpeg,png,svg}')
+        .pipe(imagemin())
+        .pipe(gulp.dest(dist.imgs));
+});
 
 
 
@@ -248,10 +239,9 @@ gulp.task(
     'default', [
         'clean',
         'swig',
-        'minifycss'
-        // 'minifycss',
+        'minifycss',
         // 'minifyjs',
-        // 'imagemin'
+        'imagemin'
     ]
 );
 

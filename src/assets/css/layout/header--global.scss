@@ -7,3 +7,12 @@
     border-bottom:$spacing solid #000;
     min-height:$global-header-height;
 }
+.logo__wrap {
+    margin-top:$spacing-sm;
+    margin-bottom:0;
+}
+.logo__img {
+    height:($global-header-height - pxToEm($spacing-xlg));
+    vertical-align:middle;
+    width:auto;
+}

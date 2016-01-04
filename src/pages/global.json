@@ -1,5 +1,6 @@
 {
     "global" : {
+        "clubName" : "Football Club FC",
         "pageTitleFragment" : " | Football Club FC"
     },
     "mainNav" : [

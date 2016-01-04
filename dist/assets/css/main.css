@@ -56,6 +56,10 @@ body {
   min-height: 100%;
 }
 
+img {
+  border: none;
+}
+
 a {
   font-size: inherit;
 }
@@ -141,6 +145,17 @@ body {
   border-top: 16px solid #000;
   border-bottom: 16px solid #000;
   min-height: 7.5em;
+}
+
+.logo__wrap {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.logo__img {
+  height: 3.5em;
+  vertical-align: middle;
+  width: auto;
 }
 
 a {
