@@ -9,6 +9,7 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
+<title>{% block pageTitle %}{% endblock %} {{ global.pageTitleFragment }}</title>
 </head>
 <body>
 

@@ -33,7 +33,7 @@ var watch = {};
     watch.imgs        = src.assets + 'imgs/**/*.{gif,jpg,jpeg,png,svg}';
     watch.js          = src.assets + 'js/**/*.js';
     watch.libs        = src.assets + 'libs/**/*.{js,css}';
-    watch.pages       = src.root + 'pages/**/*.swig';
+    watch.pages       = src.root + 'pages/**/*.{swig,json}';
     watch.partials    = src.root + 'partials/**/*.swig';
     watch.templates   = src.root + 'templates/**/*.swig';
 
@@ -79,10 +79,9 @@ Swig
 ***/
 gulp.task('swig', function() {
     var opts = {
-        // load_json: true,
-        // json_path: './data/pages/',
+        load_json: true,
         defaults: {cache: false},
-        // data: require('./data/global')
+        data: require('./' + src.pages + '_global')
     };
 
     return gulp.src(src.pages + '**/*.swig')
