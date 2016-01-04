@@ -25,21 +25,25 @@
     ],
     "socialMedia" : [
         {
+            "icon" : "twitter",
             "type" : "twitter",
             "cta" : "Follow us on Twitter",
             "url" : "http://twitter.com/dcfcofficial"
         },
         {
+            "icon" : "facebook-official",
             "type" : "facebook",
             "cta" : "Find us on Facebook",
             "url" : "http://www.facebook.com/DerbyCounty1"
         },
         {
+            "icon" : "instagram",
             "type" : "instagram",
             "cta" : "Follow us on Instagram",
             "url" : "http://instagram.com/dcfcofficial"
         },
         {
+            "icon" : "youtube",
             "type" : "youtube",
             "cta" : "Find us on YouTube",
             "url" : "http://www.youtube.com/user/DCTV1884"
