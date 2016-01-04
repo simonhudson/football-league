@@ -10,6 +10,7 @@
 <!--<![endif]-->
 <head>
 <title>{% block pageTitle %}{% endblock %}{{ global.pageTitleFragment }}</title>
+<link href="assets/css/main.min.css" rel="stylesheet" />
 </head>
 <body>
 
