@@ -1,0 +1,7 @@
+//
+// Global footer
+//
+.footer--global {
+    @include padding-t();
+    border-top:1px solid rgba($palette-body, .35);
+}

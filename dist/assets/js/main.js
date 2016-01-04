@@ -92,7 +92,7 @@ Main navigation
 */
 var MainNav = {
 
-    showNavAt: 768,
+    showNavAt: 1024,
 
     init: function() {
         var mainNavObj = {

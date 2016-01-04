@@ -3,12 +3,16 @@
 //
 .header--global {
     background:$palette-body;
-    border-top:$spacing solid #000;
-    border-bottom:$spacing solid #000;
+    border-top:$spacing-sm solid $palette-accent-primary;
+    border-bottom:$spacing-sm solid $palette-accent-primary;
     min-height:$global-header-height;
 
     .grid__wrap {
         position:relative;
+    }
+
+    @include bp($switch-layout) {
+        border-width:$spacing;
     }
 
 }

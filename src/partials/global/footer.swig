@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer--global">
     <div class="social-media">
         <ul class="social-media__list">
             {% for item in socialMedia %}

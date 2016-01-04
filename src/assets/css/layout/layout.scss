@@ -2,5 +2,5 @@
 // Layout
 //
 body {
-    background:$palette-accent-primary;
+    background:lighten($palette-accent-primary, 12%);
 }
