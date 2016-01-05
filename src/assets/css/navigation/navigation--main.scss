@@ -4,11 +4,18 @@
 .main-nav__wrap {
     margin-bottom:0;
 }
-.main-nav__list,
-.sub-nav__list {
+.main-nav__list {
     
     @include bp($switch-layout) {
         display:flex;
+        justify-content:flex-end;
+    }
+
+}
+.sub-nav__list {
+
+    @include bp($switch-layout) {
+        @include hidden()
     }
 
 }
@@ -20,7 +27,7 @@
     padding-bottom:0;
 
     @include bp($switch-layout) {
-        flex-grow:1;
+        text-align:right;
     }
 }
 .main-nav__link,
@@ -36,12 +43,13 @@
     background:rgba($palette-accent-primary, .15);
 
     @include bp($switch-layout) {
+        @include padding-x();
         background:0;
     }
 
 }
 .sub-nav__link {
-    @include padding-x($spacing-lg);
+    @include padding();
     background:rgba($palette-accent-primary, .05);
 
     @include bp($switch-layout) {

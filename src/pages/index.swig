@@ -8,7 +8,7 @@
     </div>
     <div class="grid__wrap">
         <div class="grid__span--18">
-            <h1>{{ heading }}</h1>
+            <h1 class="hidden">{{ heading }}</h1>
         </div>
     </div>
     {% endblock %}

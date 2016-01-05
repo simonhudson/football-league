@@ -273,9 +273,21 @@ a {
 }
 
 @media all and (min-width: 1024px) {
-  .main-nav__list,
-  .sub-nav__list {
+  .main-nav__list {
     display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .sub-nav__list {
+    font-size: 0 !important;
+    height: 0 !important;
+    left: -999% !important;
+    line-height: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    width: 0 !important;
   }
 }
 
@@ -290,7 +302,7 @@ a {
 @media all and (min-width: 1024px) {
   .main-nav__item,
   .sub-nav__item {
-    flex-grow: 1;
+    text-align: right;
   }
 }
 
@@ -313,13 +325,14 @@ a {
 
 @media all and (min-width: 1024px) {
   .main-nav__link {
+    padding-right: 16px;
+    padding-left: 16px;
     background: 0;
   }
 }
 
 .sub-nav__link {
-  padding-right: 32px;
-  padding-left: 32px;
+  padding: 16px;
   background: rgba(0, 0, 0, 0.05);
 }
 
