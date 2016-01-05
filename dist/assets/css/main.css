@@ -253,15 +253,29 @@ body {
   }
 }
 
-.banner {
-  background: rgba(0, 0, 0, 0.25);
+.banner,
+.banner__img {
   height: 10em;
 }
 
 @media all and (min-width: 1024px) {
-  .banner {
+  .banner,
+  .banner__img {
     height: 15em;
   }
+}
+
+.banner {
+  background: rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.banner__img {
+  width: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  background: rgba(254, 254, 254, 0.25);
 }
 
 a {
@@ -372,4 +386,11 @@ h1 {
   line-height: 1.4em;
   font-size: 2.4em;
   padding-bottom: 0.4em;
+}
+
+h2 {
+  font-weight: normal;
+  line-height: 1.4em;
+  font-size: 2em;
+  padding-bottom: 0.6em;
 }

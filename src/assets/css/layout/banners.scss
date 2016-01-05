@@ -1,11 +1,21 @@
 //
 // Banners
 //
-.banner {
-    background:rgba($palette-accent-primary, .25);
+.banner,
+.banner__img {
     height:$global-header-height * 2;
 
     @include bp($switch-layout) {
         height:$global-header-height * 3;
     }
+
+}
+.banner {
+    background:rgba($palette-accent-primary, .25);
+    position:relative;
+}
+.banner__img {
+    @include full-width();
+    @include position-tl();
+    background:rgba($palette-body, .25);
 }
