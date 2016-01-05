@@ -17,10 +17,10 @@
 
 }
 .logo__wrap {
-    margin-top:$spacing-sm * 1.5;
+    margin-top:$spacing-sm;
     margin-bottom:0;
 }
 .logo__img {
-    height:($global-header-height - pxToEm($spacing-xlg));
+    height:($global-header-height * 0.5);
     width:auto;
 }

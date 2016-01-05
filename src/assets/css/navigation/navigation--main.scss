@@ -1,8 +1,8 @@
 //
 // Main nav
 //
-.main-nav {
-    @include margin-t();
+.main-nav__wrap {
+    margin-bottom:0;
 }
 .main-nav__list,
 .sub-nav__list {
@@ -25,22 +25,32 @@
 }
 .main-nav__link,
 .sub-nav__link {
-    @include padding-y();
-    @include padding-x($spacing-sm);
     color:$palette-accent-primary;
     display:block;
     text-decoration:none;
 }
 .main-nav__link {
+    @include padding-y();
+    @include padding-x($spacing-sm);
     @include strong();
     background:rgba($palette-accent-primary, .15);
+
+    @include bp($switch-layout) {
+        background:0;
+    }
+
 }
 .sub-nav__link {
     @include padding-x($spacing-lg);
     background:rgba($palette-accent-primary, .05);
+
+    @include bp($switch-layout) {
+        background:0;
+    }
+
 }
 .main-nav__toggle {
-    @include position-tr(($spacing * 1.5), $spacing);
+    @include position-tr($spacing-sm * 1.5);
     color:$palette-accent-primary;
     display:inline-block;
 
