@@ -163,12 +163,19 @@ var Squad = {
 
     createItems: function(data) {
         for (var i in data) {
+            var playerName = data[i].firstname + ' ' + data[i].lastname;
+            var playerSlug = playerName.replace(' ', '-').toLowerCase();
             var item =
                 '<li class="player">' +
+                    '<a class="player__link" href="./players/' + playerSlug + '">' +
+                        '<img alt="' + playerName + '" class="player__img" src="imgs/players/' + playerSlug + '.jpg" />' +
+                    '</a>' +
                     '<p class="player__info">' +
-                        '<span class="player__number">' + data[i].squadnumber + '</span>' +
-                        '<span class="player__name cut-corner cut-corner--tl">' + data[i].firstname + ' ' + data[i].lastname + '</span>' +
-                        '<span class="player__position">' + data[i].position + '</span>' +
+                        '<a class="player__link" href="./players/' + playerSlug + '">' +
+                            '<span class="player__number">' + data[i].squadnumber + '</span>' +
+                            '<span class="player__name cut-corner cut-corner--tl">' + playerName + '</span>' +
+                            '<span class="player__position">' + data[i].position + '</span>' +
+                        '</a>' +
                     '</p>' +
                 '</li>';
             Squad.array.push(item);

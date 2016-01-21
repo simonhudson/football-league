@@ -12,7 +12,7 @@
 }
 .player {
     @include margin-b-lg();
-    background:rgba($palette-accent-primary, .75);
+    display:flex;
     height:200px;
     position:relative;
 
@@ -44,13 +44,26 @@
     }
 
 }
+.player__img {
+    @include full-width();
+    background:rgba($palette-accent-primary, .75);
+    height:200px;
+}
 .player__info {
     @include full-width();
     @include padding-sm();
-    @include position-bl();
+
+    @include bp($bp-2) {
+        @include position-bl();
+    }
+
 }
 [class*="player__"] {
     display:block;
+}
+.player__link {
+    @include full-width();
+    text-decoration:none;
 }
 .player__number {
     @include margin-b-sm();
@@ -59,11 +72,16 @@
     font-size:pxToEm($base-font-size * 2.2);
 }
 .player__name {
-    @include margin-x(0, -$spacing);
+    @include box-shadow(3px, 5px, 0, #000);
     @include padding-sm();
     @include strong();
     background:#fff;
     color:$palette-accent-primary;
+
+    @include bp($bp-2) {
+        @include margin-x(0, -$spacing);
+    }
+
 }
 .player__position {
     color:rgba($palette-body, .65);
