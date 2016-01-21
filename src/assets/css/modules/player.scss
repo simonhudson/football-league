@@ -12,8 +12,9 @@
 }
 .player {
     @include margin-b-lg();
+    background:rgba($palette-accent-primary, .75);
     display:flex;
-    height:200px;
+    height:225px;
     position:relative;
 
     @include bp($bp-2) {
@@ -45,9 +46,8 @@
 
 }
 .player__img {
-    @include full-width();
-    background:rgba($palette-accent-primary, .75);
-    height:200px;
+    height:225px;
+    width:auto;
 }
 .player__info {
     @include full-width();
@@ -84,6 +84,8 @@
 
 }
 .player__position {
-    color:rgba($palette-body, .65);
+    color:rgba($palette-accent-primary, .65);
+    font-family:$font-sans;
+    font-size:pxToEm($base-font-size * 0.9);
     text-align:right;
 }

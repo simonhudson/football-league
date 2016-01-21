@@ -168,13 +168,12 @@ var Squad = {
             var item =
                 '<li class="player">' +
                     '<a class="player__link" href="./players/' + playerSlug + '">' +
-                        '<img alt="' + playerName + '" class="player__img" src="imgs/players/' + playerSlug + '.jpg" />' +
+                        '<img alt="' + playerName + '" class="player__img" src="./assets/imgs/squad/' + playerSlug + '.jpg" />' +
                     '</a>' +
                     '<p class="player__info">' +
                         '<a class="player__link" href="./players/' + playerSlug + '">' +
                             '<span class="player__number">' + data[i].squadnumber + '</span>' +
-                            '<span class="player__name cut-corner cut-corner--tl">' + playerName + '</span>' +
-                            '<span class="player__position">' + data[i].position + '</span>' +
+                            '<span class="player__name cut-corner cut-corner--tl">' + playerName + '<span class="player__position">' + data[i].position + '</span></span>' +
                         '</a>' +
                     '</p>' +
                 '</li>';

@@ -1189,8 +1189,9 @@ h6, .faux-h6 {
 
 .player {
   margin-bottom: 32px;
+  background: rgba(0, 0, 0, 0.75);
   display: flex;
-  height: 200px;
+  height: 225px;
   position: relative; }
   @media all and (min-width: 640px) {
     .player {
@@ -1214,9 +1215,8 @@ h6, .faux-h6 {
     margin-right: 0; } }
 
 .player__img {
-  width: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  height: 200px; }
+  height: 225px;
+  width: auto; }
 
 .player__info {
   width: 100%;
@@ -1256,5 +1256,7 @@ h6, .faux-h6 {
       margin-left: -16px; } }
 
 .player__position {
-  color: rgba(254, 254, 254, 0.65);
+  color: rgba(0, 0, 0, 0.65);
+  font-family: "opensans_regular", arial, helvetica, sans-serif;
+  font-size: 0.9em;
   text-align: right; }
