@@ -1,0 +1,33 @@
+//
+// Player
+//
+.players-list {
+
+    @include bp($switch-layout) {
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+}
+.player {
+
+    @include bp($switch-layout) {
+        @include padding-x($spacing-lg, 0);
+        width:20%;
+    }
+
+}
+.player:last-of-type {
+    padding-right:0;
+}
+[class*="player__"] {
+    display:block;
+}
+.player__number {
+    @include strong();
+    color:rgba($palette-body, .5);
+    font-size:pxToEm($base-font-size * 2.2);
+}
+.player__name {
+    @include strong();
+}

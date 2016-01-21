@@ -108,11 +108,11 @@ gulp.task('minifycss', ['uncss'], function() {
 Un-CSS
 ***/
 gulp.task('uncss', ['sass'], function () {
-    return gulp.src(dist.css + '*.css')
-        .pipe(uncss({
-            html: ['./' + dist.root + '*.html']
-        }))
-        .pipe(gulp.dest(dist.css));
+    // return gulp.src(dist.css + '*.css')
+    //     .pipe(uncss({
+    //         html: ['./' + dist.root + '*.html']
+    //     }))
+    //     .pipe(gulp.dest(dist.css));
 });
 
 /**

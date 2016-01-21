@@ -163,7 +163,12 @@ var Squad = {
 
     createItems: function(data) {
         for (var i in data) {
-            var item = '<li>' + data[i].firstname + ' ' + data[i].lastname + '</li>';
+            var item =
+                '<li class="player">' +
+                    '<span class="player__number">' + data[i].squadnumber + '</span>' +
+                    '<span class="player__name">' + data[i].firstname + ' ' + data[i].lastname + '</span>' +
+                    '<span class="player__position">' + data[i].position + '</span>' +
+                '</li>';
             Squad.array.push(item);
         }
         Squad.renderItems();

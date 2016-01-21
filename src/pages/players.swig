@@ -7,8 +7,7 @@
     <div class="grid__wrap">
         <div class="grid__span--full">
             <h1>{{ heading }}</h1>
-            <ul class="js-squad-list">
-
+            <ul class="js-squad-list players-list no-bullet">
             </ul>
         </div>
     </div>
