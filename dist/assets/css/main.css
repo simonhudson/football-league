@@ -203,7 +203,7 @@ body {
 
 @media all and (min-width: 1024px) {
   .header--global {
-    border-width: 16px;
+    min-height: 7.5em;
   }
 }
 
@@ -215,6 +215,12 @@ body {
 .logo__img {
   height: 2.5em;
   width: auto;
+}
+
+@media all and (min-width: 1024px) {
+  .logo__img {
+    height: 5em;
+  }
 }
 
 .footer__wrap {

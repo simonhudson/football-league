@@ -12,7 +12,7 @@
     }
 
     @include bp($switch-layout) {
-        border-width:$spacing;
+        min-height:($global-header-height * 1.5);
     }
 
 }
@@ -23,4 +23,9 @@
 .logo__img {
     height:($global-header-height * 0.5);
     width:auto;
+
+    @include bp($switch-layout) {
+        height:($global-header-height * 1);
+    }
+
 }

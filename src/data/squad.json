@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "squadnumber": 1,
+        "lastname": "Grant",
+        "firstname": "Lee",
+        "position": "Goalkeeper",
+        "nationality": "England"
+    },
+    {
+        "id": 2,
+        "squadnumber": 2,
+        "lastname": "Christie",
+        "firstname": "Cyrus",
+        "position": "Defender",
+        "nationality": "Republic of Ireland"
+    },
+    {
+        "id": 3,
+        "squadnumber": 3,
+        "lastname": "Forsyth",
+        "firstname": "Craig",
+        "position": "Scotland"
+    }
+]
