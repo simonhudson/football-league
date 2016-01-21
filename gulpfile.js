@@ -19,6 +19,7 @@ var src = {};
     src.root        = 'src/';
     src.assets      = src.root + 'assets/';
     src.css         = src.assets + 'css/';
+    src.data        = src + 'data/';
     src.fonts       = src.assets + 'fonts/';
     src.imgs        = src.assets + 'imgs/';
     src.js          = src.assets + 'js/';
@@ -30,6 +31,7 @@ var dist = {};
     dist.root    = 'dist/';
     dist.assets  = dist.root + 'assets/';
     dist.css     = dist.assets + 'css/';
+    dist.data    = dist + 'data/';
     dist.fonts   = dist.assets + 'fonts/';
     dist.imgs    = dist.assets + 'imgs/';
     dist.js      = dist.assets + 'js/';
@@ -122,11 +124,19 @@ gulp.task('imagemin', function () {
         .pipe(gulp.dest(dist.imgs));
 });
 
+/**
+Copy data
+**/
+gulp.task('copydata', function () {
+    return gulp.src(src.data + '**/*.json')
+        .pipe(gulp.dest(dist.data));
+});
+
 /***
 Concatenate JS
 ***/
 gulp.task('concatjs', function() {
-    return gulp.src(src.js +'/**/*.js')
+    return gulp.src([src.js +'/services/*.js', src.js +'/modules/*.js'])
         .pipe(concat('main.js'))
         .pipe(gulp.dest(dist.js));
 });
@@ -147,7 +157,8 @@ gulp.task(
         'swig',
         'minifycss',
         'minifyjs',
-        'imagemin'
+        'imagemin',
+        'copydata'
     ]
 );
 

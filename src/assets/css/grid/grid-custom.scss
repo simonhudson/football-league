@@ -100,6 +100,10 @@
         width: ($grid__width--tab-l / 2) - ($grid__gutter * 2);
     }
 
+    .grid__span--full {
+        width: ($grid__width--tab-l / 1) - ($grid__gutter * 2);
+    }
+
 }
 
 @include bp($bp-desktop) {
@@ -132,6 +136,10 @@
         width: ($grid__width--desktop / 2) - ($grid__gutter * 2);
     }
 
+    .grid__span--full {
+        width: ($grid__width--desktop / 1) - ($grid__gutter * 2);
+    }
+
 }
 
 @include bp($bp-wide) {
@@ -162,6 +170,10 @@
 
     .grid__span--half {
         width: ($grid__width--wide / 2) - ($grid__gutter * 2);
+    }
+
+    .grid__span--full {
+        width: ($grid__width--wide / 1) - ($grid__gutter * 2);
     }
 
 }

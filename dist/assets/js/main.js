@@ -1,51 +1,4 @@
 /*
-Main navigation
-*/
-var MainNav = {
-
-    showNavAt: 1024,
-
-    init: function() {
-        var mainNavObj = {
-            nav: $('.main-nav'),
-            toggle: $('.main-nav__toggle')
-        };
-
-        if (Window.getViewportWidth() >= MainNav.showNavAt)
-            MainNav.showNav(mainNavObj);
-
-        MainNav.eventListeners(mainNavObj);
-    },
-
-    eventListeners: function(mainNavObj) {
-        MainNav.setState(mainNavObj); // On load
-
-        Window.resize(function() {
-            MainNav.setState(mainNavObj);
-        });
-    },
-
-    setState: function(mainNavObj) {
-        if (Window.getViewportWidth() >= MainNav.showNavAt) {
-            mainNavObj.toggle.attr('tabindex', '-1');
-            MainNav.showNav(mainNavObj);
-        } else {
-            mainNavObj.toggle.removeAttr('tabindex');
-            MainNav.hideNav(mainNavObj);
-        }
-    },
-
-    showNav: function(mainNavObj) {
-        mainNavObj.nav.show();
-    },
-
-    hideNav: function(mainNavObj) {
-        mainNavObj.nav.hide();
-    },
-
-};
-$(document).ready(MainNav.init);
-/*
 Show/hide
 */
 
@@ -100,6 +53,16 @@ var ShowHide = {
 
 };
 $('[data-showhide-target]').each(ShowHide.init);
+var _s_Squad = {
+  
+    getAll: function() {
+        return $.ajax({
+            url: 'data/squad.json',
+            method: 'get'
+        });
+    }
+
+};
 var Window = {
 
     resize: function(callback, timeout) {
@@ -134,3 +97,71 @@ var Window = {
     }
     
 };
+/*
+Main navigation
+*/
+var MainNav = {
+
+    showNavAt: 1024,
+
+    init: function() {
+        var mainNavObj = {
+            nav: $('.main-nav'),
+            toggle: $('.main-nav__toggle')
+        };
+
+        if (Window.getViewportWidth() >= MainNav.showNavAt)
+            MainNav.showNav(mainNavObj);
+
+        MainNav.eventListeners(mainNavObj);
+    },
+
+    eventListeners: function(mainNavObj) {
+        MainNav.setState(mainNavObj); // On load
+
+        Window.resize(function() {
+            MainNav.setState(mainNavObj);
+        });
+    },
+
+    setState: function(mainNavObj) {
+        if (Window.getViewportWidth() >= MainNav.showNavAt) {
+            mainNavObj.toggle.attr('tabindex', '-1');
+            MainNav.showNav(mainNavObj);
+        } else {
+            mainNavObj.toggle.removeAttr('tabindex');
+            MainNav.hideNav(mainNavObj);
+        }
+    },
+
+    showNav: function(mainNavObj) {
+        mainNavObj.nav.show();
+    },
+
+    hideNav: function(mainNavObj) {
+        mainNavObj.nav.hide();
+    },
+
+};
+$(document).ready(MainNav.init);
+var Squad = {
+  
+    init: function() {
+        Squad.eventListeners();
+    },
+
+    eventListeners: function() {
+
+        if ($('.js-squad-list').length)
+            Squad.listAll();
+
+    },
+
+    listAll: function() {
+        _s_Squad.getAll().then(function(response) {
+            console.log(response);
+        });
+    }
+
+};
+$(document).ready(Squad.init());

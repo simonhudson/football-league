@@ -2,7 +2,7 @@
     <ul class="main-nav__list">
         {% for level1 in mainNav %}
             <li class="main-nav__item">
-                <a class="main-nav__link" href="{{ level1.url }}">{{ level1.text }}</a>
+                <a class="main-nav__link" href="{{ level1.url }}.html">{{ level1.text }}</a>
             </li>
             {% if level1.secondaryNav %}
                 <ul class="sub-nav__list">
