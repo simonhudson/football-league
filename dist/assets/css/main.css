@@ -1190,7 +1190,8 @@ h6, .faux-h6 {
 .player {
   margin-bottom: 32px;
   background: rgba(0, 0, 0, 0.75);
-  height: 200px; }
+  height: 200px;
+  position: relative; }
   @media all and (min-width: 640px) {
     .player {
       margin-right: 32px;
@@ -1212,15 +1213,32 @@ h6, .faux-h6 {
   .player:nth-of-type(4n) {
     margin-right: 0; } }
 
+.player__info {
+  width: 100%;
+  padding: 8px;
+  bottom: 0;
+  left: 0;
+  position: absolute; }
+
 [class*="player__"] {
   display: block; }
 
 .player__number {
+  margin-bottom: 8px;
   font-family: "opensans_semibold", "opensans_regular", arial, helvetica, sans-serif;
   font-weight: normal;
   color: rgba(254, 254, 254, 0.5);
   font-size: 2.2em; }
 
 .player__name {
+  margin-right: 0;
+  margin-left: -16px;
+  padding: 8px;
   font-family: "opensans_semibold", "opensans_regular", arial, helvetica, sans-serif;
-  font-weight: normal; }
+  font-weight: normal;
+  background: #fff;
+  color: #000; }
+
+.player__position {
+  color: rgba(254, 254, 254, 0.65);
+  text-align: right; }

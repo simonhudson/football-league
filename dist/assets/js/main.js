@@ -165,9 +165,11 @@ var Squad = {
         for (var i in data) {
             var item =
                 '<li class="player">' +
-                    '<span class="player__number">' + data[i].squadnumber + '</span>' +
-                    '<span class="player__name">' + data[i].firstname + ' ' + data[i].lastname + '</span>' +
-                    '<span class="player__position">' + data[i].position + '</span>' +
+                    '<p class="player__info">' +
+                        '<span class="player__number">' + data[i].squadnumber + '</span>' +
+                        '<span class="player__name">' + data[i].firstname + ' ' + data[i].lastname + '</span>' +
+                        '<span class="player__position">' + data[i].position + '</span>' +
+                    '</p>' +
                 '</li>';
             Squad.array.push(item);
         }
