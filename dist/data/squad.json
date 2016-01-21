@@ -21,5 +21,12 @@
         "lastname": "Forsyth",
         "firstname": "Craig",
         "position": "Scotland"
+    },
+    {
+        "id": 4,
+        "squadnumber": 4,
+        "lastname": "Bryson",
+        "firstname": "Craig",
+        "position": "Scotland"
     }
 ]

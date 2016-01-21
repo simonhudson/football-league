@@ -7,9 +7,9 @@
     <div class="grid__wrap">
         <div class="grid__span--full">
             <h1>{{ heading }}</h1>
-            <div class="js-squad-list">
+            <ul class="js-squad-list">
 
-            </div>
+            </ul>
         </div>
     </div>
     {% endblock %}

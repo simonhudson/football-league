@@ -4,17 +4,29 @@ var Squad = {
         Squad.eventListeners();
     },
 
+    array: [],
+
     eventListeners: function() {
 
         if ($('.js-squad-list').length)
-            Squad.listAll();
+            _s_Squad.getAll().then(function(response) {
+                Squad.createItems(response);
+            });
 
     },
 
-    listAll: function() {
-        _s_Squad.getAll().then(function(response) {
-            console.log(response);
-        });
+    createItems: function(data) {
+        for (var i in data) {
+            var item = '<li>' + data[i].firstname + ' ' + data[i].lastname + '</li>';
+            Squad.array.push(item);
+        }
+        Squad.renderItems();
+    },
+
+    renderItems: function() {
+        for (var i=0; i < Squad.array.length; i++) {
+            $('.js-squad-list').append(Squad.array[i]);
+        }
     }
 
 };
