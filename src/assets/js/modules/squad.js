@@ -27,7 +27,8 @@ var Squad = {
                     '<p class="player__info">' +
                         '<a class="player__link" href="./players/' + playerSlug + '">' +
                             '<span class="player__number">' + data[i].squadnumber + '</span>' +
-                            '<span class="player__name cut-corner cut-corner--tl">' + playerName + '<span class="player__position">' + data[i].position + '</span></span>' +
+                            '<span class="player__name cut-corner cut-corner--tl">' + playerName + '</span>' +
+                            '<span class="player__position">' + data[i].position + '</span>' +
                         '</a>' +
                     '</p>' +
                 '</li>';

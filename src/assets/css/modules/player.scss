@@ -50,8 +50,11 @@
     width:auto;
 }
 .player__info {
+    @include box-shadow(3px, 5px, 0, #000);
     @include full-width();
     @include padding-sm();
+    background:#fff;
+    color:$palette-accent-primary;
 
     @include bp($bp-2) {
         @include position-bl();
@@ -63,29 +66,26 @@
 }
 .player__link {
     @include full-width();
+    color:$palette-accent-primary;
     text-decoration:none;
 }
 .player__number {
     @include margin-b-sm();
     @include strong();
-    color:rgba($palette-body, .5);
+    color:rgba($palette-accent-primary, .35);
     font-size:pxToEm($base-font-size * 2.2);
 }
 .player__name {
-    @include box-shadow(3px, 5px, 0, #000);
-    @include padding-sm();
     @include strong();
-    background:#fff;
-    color:$palette-accent-primary;
-
-    @include bp($bp-2) {
-        @include margin-x(0, -$spacing);
-    }
+    font-size:pxToEm($base-font-size * 1.2);
+    // @include bp($bp-2) {
+    //     @include margin-x(0, -$spacing);
+    // }
 
 }
 .player__position {
     color:rgba($palette-accent-primary, .65);
     font-family:$font-sans;
     font-size:pxToEm($base-font-size * 0.9);
-    text-align:right;
+    // text-align:right;
 }
