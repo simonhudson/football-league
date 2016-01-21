@@ -21,7 +21,7 @@ var Squad = {
                 '<li class="player">' +
                     '<p class="player__info">' +
                         '<span class="player__number">' + data[i].squadnumber + '</span>' +
-                        '<span class="player__name">' + data[i].firstname + ' ' + data[i].lastname + '</span>' +
+                        '<span class="player__name cut-corner cut-corner--tl">' + data[i].firstname + ' ' + data[i].lastname + '</span>' +
                         '<span class="player__position">' + data[i].position + '</span>' +
                     '</p>' +
                 '</li>';
