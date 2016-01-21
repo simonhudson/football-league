@@ -3,9 +3,10 @@
 //
 .players-list {
 
-    @include bp($bp-tab-p) {
+    @include bp($bp-2) {
         display:flex;
         flex-wrap:wrap;
+        justify-content:center;
     }
 
 }
@@ -14,14 +15,33 @@
     background:rgba($palette-accent-primary, .75);
     height:200px;
 
-    @include bp($bp-tab-p) {
+    @include bp($bp-2) {
         @include margin-x($spacing-lg, 0);
+        width:47%;
+    }
+
+    @include bp($bp-tab-p) {
         width:20%;
     }
 
 }
+.player:nth-of-type(2n) {
+ 
+    @include bp($bp-2) {
+        margin-right:0;
+    }
+
+    @include bp($bp-tab-p) {
+        @include margin-x($spacing-lg, 0);
+    }
+
+}
 .player:nth-of-type(4n) {
-    margin-right:0;
+ 
+    @include bp($bp-tab-p) {
+        margin-right:0;
+    }
+
 }
 [class*="player__"] {
     display:block;
