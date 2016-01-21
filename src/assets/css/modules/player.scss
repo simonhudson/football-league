@@ -3,22 +3,25 @@
 //
 .players-list {
 
-    @include bp($switch-layout) {
+    @include bp($bp-tab-p) {
         display:flex;
         flex-wrap:wrap;
     }
 
 }
 .player {
+    @include margin-b-lg();
+    background:rgba($palette-accent-primary, .75);
+    height:200px;
 
-    @include bp($switch-layout) {
-        @include padding-x($spacing-lg, 0);
+    @include bp($bp-tab-p) {
+        @include margin-x($spacing-lg, 0);
         width:20%;
     }
 
 }
-.player:last-of-type {
-    padding-right:0;
+.player:nth-of-type(4n) {
+    margin-right:0;
 }
 [class*="player__"] {
     display:block;

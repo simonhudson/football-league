@@ -1181,19 +1181,23 @@ h6, .faux-h6 {
   font-size: 1em;
   padding-bottom: 0.6em; }
 
-@media all and (min-width: 1024px) {
+@media all and (min-width: 768px) {
   .players-list {
     display: flex;
     flex-wrap: wrap; } }
 
-@media all and (min-width: 1024px) {
-  .player {
-    padding-right: 32px;
-    padding-left: 0;
-    width: 20%; } }
+.player {
+  margin-bottom: 32px;
+  background: rgba(0, 0, 0, 0.75);
+  height: 200px; }
+  @media all and (min-width: 768px) {
+    .player {
+      margin-right: 32px;
+      margin-left: 0;
+      width: 20%; } }
 
-.player:last-of-type {
-  padding-right: 0; }
+.player:nth-of-type(4n) {
+  margin-right: 0; }
 
 [class*="player__"] {
   display: block; }
